@@ -1,0 +1,10 @@
+import java.time.format.DateTimeFormatter
+import java.time.LocalDateTime
+
+subprojects {
+  version = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yy.MM.dd.HH.mm.ss"))
+}
+
+allprojects {
+  apply plugin: 'idea'
+}
