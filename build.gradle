@@ -1,8 +1,13 @@
 import java.time.format.DateTimeFormatter
 import java.time.LocalDateTime
 
+ext {
+  initTime = LocalDateTime.now()
+}
+
 subprojects {
-  version = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yy.MM.dd.HH.mm.ss"))
+  version = initTime.format(DateTimeFormatter.ofPattern("yy.MM.dd.HH.mm.ss"))
+  buildDir = file("$rootDir/build/${project.name}")
 }
 
 allprojects {
