@@ -1,0 +1,41 @@
+////
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "http://10.1.1.123:8081/artifactory/ext-release-local"
+            credentials {
+                username "admin"
+                password "password"
+            }
+        }
+    }
+}
+
+////
+
+gradlePlugin {
+    plugins {
+        common {
+            id = 'common'
+            implementationClass = 'com.example.CommonProjectPlugin'
+        }
+        'version' {
+            id = 'version'
+            implementationClass = 'com.example.VersionPlugin'
+        }
+    }
+}
+
+////
+
+pluginRepositories {
+    maven {
+        url 'http://10.1.1.123:8081/artifactory/ext-release-local'
+    }
+}
